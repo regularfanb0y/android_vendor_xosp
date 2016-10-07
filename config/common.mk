@@ -38,9 +38,6 @@ ifneq ($(TARGET_BUILD_VARIANT),eng)
 ADDITIONAL_DEFAULT_PROPERTIES += ro.adb.secure=1
 endif
 
-# Bootanimation
-PRODUCT_COPY_FILES += \
-    vendor/xosp/prebuilt/common/media/bootanimation.zip:system/media/bootanimation.zip
     
 # Backup Tool
 PRODUCT_COPY_FILES += \
