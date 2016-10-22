@@ -21,7 +21,7 @@ function brunch()
     breakfast $*
     if [ $? -eq 0 ]; then
         xospapps_essentials
-        mka bacon
+        mka xosp
     else
         echo "No such item in brunch menu. Try 'breakfast'"
         return 1
