@@ -25,8 +25,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Default notification/alarm sounds
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.config.notification_sound=Argon.ogg \
-    ro.config.alarm_alert=Hassium.ogg
+    ro.config.notification_sound=Tejat.ogg \
+    ro.config.alarm_alert=xosp.ogg
 
 ifneq ($(TARGET_BUILD_VARIANT),user)
 # Thank you, please drive thru!
