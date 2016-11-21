@@ -89,6 +89,11 @@ include vendor/xosp/config/xosp_audio.mk
 PRODUCT_PACKAGES += \
     bootanimation.zip
 
+# SuperSU
+PRODUCT_COPY_FILES += \
+   vendor/xosp/prebuilt/common/etc/UPDATE-SuperSU.zip:system/addon.d/UPDATE-SuperSU.zip \
+   vendor/xosp/prebuilt/common/etc/init.d/99SuperSUDaemon:system/etc/init.d/99SuperSUDaemon
+
 # Required packages
 PRODUCT_PACKAGES += \
     BluetoothExt \
