@@ -18,8 +18,14 @@ EOF
 
 function brunch()
 {
-    breakfast $1
-    make xosp $2
+    breakfast $*
+    if [ $? -eq 0 ]; then
+        xospapps_essentials
+        mka bacon
+    else
+        echo "No such item in brunch menu. Try 'breakfast'"
+        return 1
+    fi
     return $?
 }
 
@@ -217,6 +223,100 @@ function dddclient()
        echo "Unable to determine build system output dir."
    fi
 }
+
+function xospapps_essentials(){
+
+    #First we should check for the connection
+    wget -q --tries=10 --timeout=20 --spider http://xosp.org
+    mkdir -p temp_essentials_xosp_apps
+    cd temp_essentials_xosp_apps
+    mkdir -p essentials
+    if [[ $? -eq 0 ]]; then
+        echo -e "Environment connected to internet!"
+        echo -e "Downloading the essentials XOSPApps for the compilation..."
+        sleep 3
+        
+        echo -e "Downloading Xperia Home..."
+        if wget http://essentials.xospapps.xosp.org/essentials/Home/Home.apk; then
+            mkdir -p essentials/Home
+            mv Home.apk essentials/Home
+            sleep 2
+        else
+            echo -e "Couldn't download, please check your connection!"
+            exit 0
+        fi
+        echo -e "Downloading SemcClock..."
+        if wget http://essentials.xospapps.xosp.org/essentials/SemcClock/SemcClock.apk; then
+            mkdir -p essentials/SemcClock
+            mv SemcClock.apk essentials/SemcClock
+            sleep 2
+        else 
+            echo -e "Couldn't download, please check your connection!"
+            exit 0
+        fi
+        echo -e "Downloading SemcEmail..."
+        if wget http://essentials.xospapps.xosp.org/essentials/SemcEmail/SemcEmail.apk; then
+            mkdir -p essentials/SemcEmail
+            mv SemcEmail.apk essentials/SemcEmail
+            sleep 2
+        else
+            echo -e "Couldn't download, please check your connection!"
+            exit 0
+        fi
+        echo -e "Downloading textinput-tng..."
+        if wget http://essentials.xospapps.xosp.org/essentials/textinput-tng/textinput-tng.apk; then
+            mkdir -p essentials/textinput-tng
+            mv textinput-tng.apk essentials/textinput-tng
+            sleep 2
+            if wget http://essentials.xospapps.xosp.org/essentials/textinput-tng/lib/arm/libswiftkeysdk-java.so; then
+                mkdir -p essentials/textinput-tng/lib
+                mkdir -p essentials/textinput-tng/lib/arm
+                mv libswiftkeysdk-java.so essentials/textinput-tng/lib/arm
+                sleep 2
+            else
+                echo -e "Couldn't download, please check your connection!"
+                exit 0
+            fi
+        else
+            echo -e "Couldn't download, please check your connection!"
+            exit 0
+        fi
+        echo -e "Downloading textinput-tng for arm64 devices..."
+        if wget http://essentials.xospapps.xosp.org/arm64/textinput-tng/textinput-tng.apk; then
+            mkdir -p arm64
+            mkdir -p arm64/textinput-tng
+            mv textinput-tng.apk arm64/textinput-tng
+            sleep 2
+            if wget http://essentials.xospapps.xosp.org/arm64/textinput-tng/lib/arm/libswiftkeysdk-java.so; then
+                mkdir -p arm64/textinput-tng/lib
+                mkdir -p arm64/textinput-tng/lib/arm
+                mv libswiftkeysdk-java.so arm64/textinput-tng/lib/arm
+                sleep 2
+            else
+                echo -e "Couldn't download, please check your connection!"
+                exit 0
+            fi
+        else
+            echo -e "Couldn't download, please check your connection!"
+            exit 0
+        fi
+        echo -e "Downloading Xperia Services..."
+        if wget http://essentials.xospapps.xosp.org/essentials/XperiaServices/XperiaServices.apk; then
+            mkdir -p essentials/XperiaServices
+            mv XperiaServices.apk essentials/XperiaServices
+            sleep 2
+            cd ..
+        else 
+            echo -e "Couldn't download, please check your connection!"
+            exit 0
+        fi
+    else
+        echo -e "In order to continue with the compilation please connect to a reliable connection"
+        rm -rf temp_essentials_xosp_apps
+        exit 0
+    fi
+}
+
 
 function installboot()
 {
