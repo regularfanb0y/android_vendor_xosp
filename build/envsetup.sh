@@ -327,6 +327,7 @@ function xospapps_essentials(){
         else
             echo -e "Couldn't download, please check your connection!"
             exit 0
+        fi
     else
         echo -e "In order to continue with the compilation please connect to a reliable connection"
         rm -rf temp_essentials_xosp_apps
