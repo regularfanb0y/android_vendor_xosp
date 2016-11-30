@@ -305,11 +305,28 @@ function xospapps_essentials(){
             mkdir -p essentials/XperiaServices
             mv XperiaServices.apk essentials/XperiaServices
             sleep 2
-            cd ..
         else 
             echo -e "Couldn't download, please check your connection!"
             exit 0
         fi
+        echo -e "Downloading Sony BatteryAdviser..."
+        if wget http://essentials.xospapps.xosp.org/essentials/BatteryAdviser/BatteryAdviser.apk; then
+            mkdir -p essentials/BatteryAdviser
+            mv BatteryAdviser.apk essentials/BatteryAdviser
+            sleep 2
+            if wget http://essentials.xospapps.xosp.org/essentials/BatteryAdviser/lib/arm/libpbp.so; then
+                mkdir -p essentials/BatteryAdviser/lib
+                mkdir -p essentials/BatteryAdviser/lib/arm
+                mv libpbp.so essentials/BatteryAdviser/lib/arm
+                sleep 2
+            else
+                echo -e "Couldn't download, please check your connection!"
+                exit 0
+            fi
+            cd ..
+        else
+            echo -e "Couldn't download, please check your connection!"
+            exit 0
     else
         echo -e "In order to continue with the compilation please connect to a reliable connection"
         rm -rf temp_essentials_xosp_apps
