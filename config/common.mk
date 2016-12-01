@@ -84,6 +84,11 @@ PRODUCT_COPY_FILES += \
 # Include XOSP audio files
 include vendor/xosp/config/xosp_audio.mk
 
+
+# Bootanimation
+PRODUCT_PACKAGES += \
+    bootanimation.zip
+
 # Required packages
 PRODUCT_PACKAGES += \
     BluetoothExt \
