@@ -18,10 +18,11 @@ EOF
 
 function brunch()
 {
-    breakfast $*
+    breakfast $1
     if [ $? -eq 0 ]; then
         xospapps_essentials
-        mka xosp
+        make xosp $2
+        del_xospapps_essentials
     else
         echo "No such item in brunch menu. Try 'breakfast'"
         return 1
@@ -224,6 +225,10 @@ function dddclient()
    fi
 }
 
+function del_xospapps_essentials(){
+  rm -rf temp_essentials_xosp_apps
+}
+
 function xospapps_essentials(){
 
     #First we should check for the connection
@@ -323,8 +328,26 @@ function xospapps_essentials(){
                 echo -e "Couldn't download, please check your connection!"
                 exit 0
             fi
-            cd ..
         else
+            echo -e "Couldn't download, please check your connection!"
+            exit 0
+        fi
+        echo -e "Downloading SemCalendar..."
+        if wget http://essentials.xospapps.xosp.org/essentials/SemCalendar/SemCalendar.apk; then
+            mkdir -p essentials/SemCalendar
+            mv SemCalendar.apk essentials/SemCalendar
+            sleep 2
+        else 
+            echo -e "Couldn't download, please check your connection!"
+            exit 0
+        fi
+        echo -e "Downloading Pardana Files..."
+        if wget http://essentials.xospapps.xosp.org/essentials/PardanaFiles.zip; then
+            mkdir -p essentials/PardanaFiles
+            unzip PardanaFiles.zip -d essentials/PardanaFiles >/dev/null
+            
+            sleep 2
+        else 
             echo -e "Couldn't download, please check your connection!"
             exit 0
         fi
@@ -333,6 +356,7 @@ function xospapps_essentials(){
         rm -rf temp_essentials_xosp_apps
         exit 0
     fi
+    cd ..
 }
 
 
