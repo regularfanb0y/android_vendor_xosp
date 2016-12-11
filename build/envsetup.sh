@@ -20,9 +20,9 @@ function brunch()
 {
     breakfast $1
     if [ $? -eq 0 ]; then
+        del_xospapps_essentials
         xospapps_essentials
         make xosp $2
-        del_xospapps_essentials
     else
         echo "No such item in brunch menu. Try 'breakfast'"
         return 1
@@ -347,16 +347,17 @@ function xospapps_essentials(){
             unzip PardanaFiles.zip -d essentials/PardanaFiles >/dev/null
             
             sleep 2
+            cd ..
         else 
             echo -e "Couldn't download, please check your connection!"
             exit 0
         fi
     else
         echo -e "In order to continue with the compilation please connect to a reliable connection"
+        cd ..
         rm -rf temp_essentials_xosp_apps
         exit 0
     fi
-    cd ..
 }
 
 
