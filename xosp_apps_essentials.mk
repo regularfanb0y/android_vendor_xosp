@@ -16,7 +16,9 @@ PRODUCT_COPY_FILES += \
 	temp_essentials_xosp_apps/essentials/Home/Home.apk:system/app/Home/Home.apk \
 	temp_essentials_xosp_apps/essentials/SemcClock/SemcClock.apk:system/priv-app/SemcClock/SemcClock.apk \
 	temp_essentials_xosp_apps/essentials/XperiaServices/XperiaServices.apk:system/app/XperiaServices/XperiaServices.apk \
-	temp_essentials_xosp_apps/essentials/SemcEmail/SemcEmail.apk:system/priv-app/SemcEmail/SemcEmail.apk
+	temp_essentials_xosp_apps/essentials/SemcEmail/SemcEmail.apk:system/priv-app/SemcEmail/SemcEmail.apk \
+	temp_essentials_xosp_apps/essentials/BatteryAdviser/BatteryAdviser.apk:system/app/BatteryAdviser/BatteryAdviser.apk \
+	temp_essentials_xosp_apps/essentials/BatteryAdviser/lib/arm/libpbp.so:system/app/BatteryAdviser/lib/arm/libpbp.so
 
 
 # Copy Pardana Files Components
