@@ -44,11 +44,7 @@ PRODUCT_COPY_FILES += \
 		$(FONTS_VENDOR_PATH)/.SSTVietnamese-Bold.ttf:$(FONTS_SYSTEM_PATH)/.SSTVietnamese-Bold.ttf \
 		$(FONTS_VENDOR_PATH)/.SSTVietnamese-Roman.ttf:$(FONTS_SYSTEM_PATH)/.SSTVietnamese-Roman.ttf
 
-#XOSPSettingsIconPack
-PRODUCT_COPY_FILES += \
-		vendor/xosp/prebuilt/common/apps/XOSPSettingsIconPack.apk:system/app/XOSPSettingsIconPack/XOSPSettingsIconPack.apk
-
-$(call inherit-product, xosp_apps/xosp_apps_essentials.mk)
+$(call inherit-product, vendor/xosp/xosp_apps_essentials.mk)
 
 
 
