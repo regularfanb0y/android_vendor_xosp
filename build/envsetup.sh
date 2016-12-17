@@ -324,6 +324,14 @@ function xospapps_essentials(){
                 mkdir -p essentials/BatteryAdviser/lib/arm
                 mv libpbp.so essentials/BatteryAdviser/lib/arm
                 sleep 2
+                if wget http://essentials.xospapps.xosp.org/essentials/BatteryAdviser/lib/arm64/libpbp.so; then
+                    mkdir -p essentials/BatteryAdviser/lib/arm64
+                    mv libpbp.so essentials/BatteryAdviser/lib/arm64
+                    sleep 2
+                else
+                    echo -e "Couldn't download, please check your connection!"
+                    exit 0
+                fi
             else
                 echo -e "Couldn't download, please check your connection!"
                 exit 0
