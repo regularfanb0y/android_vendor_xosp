@@ -19,14 +19,9 @@ EOF
 function brunch()
 {
     breakfast $1
-    if [ $? -eq 0 ]; then
-        del_xospapps_essentials
-        xospapps_essentials
-        make xosp $2
-    else
-        echo "No such item in brunch menu. Try 'breakfast'"
-        return 1
-    fi
+    del_xospapps_essentials
+    xospapps_essentials
+    make xosp $2
     return $?
 }
 
