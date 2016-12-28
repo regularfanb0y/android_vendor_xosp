@@ -229,142 +229,176 @@ function del_xospapps_essentials(){
   rm -rf temp_essentials_xosp_apps
 }
 
-function xospapps_essentials(){
-
-    #First we should check for the connection
-    wget -q --tries=10 --timeout=20 --spider http://xosp.org
-    mkdir -p temp_essentials_xosp_apps
-    cd temp_essentials_xosp_apps
-    mkdir -p essentials
-    if [[ $? -eq 0 ]]; then
-        echo -e "Environment connected to internet!"
-        echo -e "Downloading the essentials XOSPApps for the compilation..."
-        sleep 3
-        
-        echo -e "Downloading Xperia Home..."
-        if wget http://essentials.xospapps.xosp.org/essentials/Home/Home.apk; then
-            mkdir -p essentials/Home
-            mv Home.apk essentials/Home
-            sleep 2
-        else
-            echo -e "Couldn't download, please check your connection!"
-            exit 0
-        fi
-        echo -e "Downloading SemcClock..."
-        if wget http://essentials.xospapps.xosp.org/essentials/SemcClock/SemcClock.apk; then
-            mkdir -p essentials/SemcClock
-            mv SemcClock.apk essentials/SemcClock
-            sleep 2
-        else 
-            echo -e "Couldn't download, please check your connection!"
-            exit 0
-        fi
-        echo -e "Downloading SemcEmail..."
-        if wget http://essentials.xospapps.xosp.org/essentials/SemcEmail/SemcEmail.apk; then
-            mkdir -p essentials/SemcEmail
-            mv SemcEmail.apk essentials/SemcEmail
-            sleep 2
-        else
-            echo -e "Couldn't download, please check your connection!"
-            exit 0
-        fi
-        echo -e "Downloading textinput-tng..."
-        if wget http://essentials.xospapps.xosp.org/essentials/textinput-tng/textinput-tng.apk; then
-            mkdir -p essentials/textinput-tng
-            mv textinput-tng.apk essentials/textinput-tng
-            sleep 2
-            if wget http://essentials.xospapps.xosp.org/essentials/textinput-tng/lib/arm/libswiftkeysdk-java.so; then
-                mkdir -p essentials/textinput-tng/lib
-                mkdir -p essentials/textinput-tng/lib/arm
-                mv libswiftkeysdk-java.so essentials/textinput-tng/lib/arm
-                sleep 2
-            else
-                echo -e "Couldn't download, please check your connection!"
-                exit 0
-            fi
-        else
-            echo -e "Couldn't download, please check your connection!"
-            exit 0
-        fi
-        echo -e "Downloading textinput-tng for arm64 devices..."
-        if wget http://essentials.xospapps.xosp.org/arm64/textinput-tng/textinput-tng.apk; then
-            mkdir -p arm64
-            mkdir -p arm64/textinput-tng
-            mv textinput-tng.apk arm64/textinput-tng
-            sleep 2
-            if wget http://essentials.xospapps.xosp.org/arm64/textinput-tng/lib/arm/libswiftkeysdk-java.so; then
-                mkdir -p arm64/textinput-tng/lib
-                mkdir -p arm64/textinput-tng/lib/arm
-                mv libswiftkeysdk-java.so arm64/textinput-tng/lib/arm
-                sleep 2
-            else
-                echo -e "Couldn't download, please check your connection!"
-                exit 0
-            fi
-        else
-            echo -e "Couldn't download, please check your connection!"
-            exit 0
-        fi
-        echo -e "Downloading Xperia Services..."
-        if wget http://essentials.xospapps.xosp.org/essentials/XperiaServices/XperiaServices.apk; then
-            mkdir -p essentials/XperiaServices
-            mv XperiaServices.apk essentials/XperiaServices
-            sleep 2
-        else 
-            echo -e "Couldn't download, please check your connection!"
-            exit 0
-        fi
-        echo -e "Downloading Sony BatteryAdviser..."
-        if wget http://essentials.xospapps.xosp.org/essentials/BatteryAdviser/BatteryAdviser.apk; then
-            mkdir -p essentials/BatteryAdviser
-            mv BatteryAdviser.apk essentials/BatteryAdviser
-            sleep 2
-            if wget http://essentials.xospapps.xosp.org/essentials/BatteryAdviser/lib/arm/libpbp.so; then
-                mkdir -p essentials/BatteryAdviser/lib
-                mkdir -p essentials/BatteryAdviser/lib/arm
-                mv libpbp.so essentials/BatteryAdviser/lib/arm
-                sleep 2
-                if wget http://essentials.xospapps.xosp.org/essentials/BatteryAdviser/lib/arm64/libpbp.so; then
-                    mkdir -p essentials/BatteryAdviser/lib/arm64
-                    mv libpbp.so essentials/BatteryAdviser/lib/arm64
-                    sleep 2
-                else
-                    echo -e "Couldn't download, please check your connection!"
-                    exit 0
-                fi
-            else
-                echo -e "Couldn't download, please check your connection!"
-                exit 0
-            fi
-        else
-            echo -e "Couldn't download, please check your connection!"
-            exit 0
-        fi
-        echo -e "Downloading SemCalendar..."
-        if wget http://essentials.xospapps.xosp.org/essentials/SemCalendar/SemCalendar.apk; then
-            mkdir -p essentials/SemCalendar
-            mv SemCalendar.apk essentials/SemCalendar
-            sleep 2
-        else 
-            echo -e "Couldn't download, please check your connection!"
-            exit 0
-        fi
-        echo -e "Downloading Pardana Files..."
-        if wget http://essentials.xospapps.xosp.org/essentials/PardanaFiles.zip; then
-            mkdir -p essentials/PardanaFiles
-            unzip PardanaFiles.zip -d essentials/PardanaFiles >/dev/null
-            
-            sleep 2
-            cd ..
-        else 
-            echo -e "Couldn't download, please check your connection!"
-            exit 0
-        fi
-    else
-        echo -e "In order to continue with the compilation please connect to a reliable connection"
-        cd ..
-        rm -rf temp_essentials_xosp_apps
+function xospapps_essentials() {
+    xospappsessentials="http://essentials.xospapps.xosp.org"
+    function xospapps_essentials_done {
+        echo -e "Done."
+    }
+    function xospapps_essentials_dwnlderror {
+        echo -e "Couldn't download, please check your connection."
         exit 0
+    }
+    if wget -q -t 10 -T 20 --spider http://xosp.org
+        then
+            echo -e "Environment connected to internet!"
+            echo -e "Downloading the essentials XOSPApps for the compilation..."
+            mkdir -p essentials_xosp_apps/essentials 2&>1 >/dev/null
+            cd essentials_xosp_apps
+            echo -e "Downloading Xperia Home..."
+            xospapps_essentials_Home="essentials/Home/Home.apk"
+            if [[ $(md5sum ${xospapps_essentials_Home} |cut -f 1 -d " " |tr '[:lower:]' '[:upper:]') == $(curl ${xospappsessentials}/${xospapps_essentials_Home}.md5 |cut -f 1 -d "%") ]]
+                then
+                    xospapps_essentials_done
+                else
+                    rm -f ${xospapps_essentials_Home}
+                    mkdir essentials/Home 2&>1 >/dev/null
+                    if wget -t 2 ${xospappsessentials}/${xospapps_essentials_Home} -O ${xospapps_essentials_Home} &>/dev/null
+                        then
+                            xospapps_essentials_done
+                        else
+                            xospapps_essentials_dwnlderror
+                    fi
+            fi
+            echo -e "Downloading SemCalendar..."
+            xospapps_essentials_SemCalendar="essentials/SemCalendar/SemCalendar.apk"
+            if [[ $(md5sum ${xospapps_essentials_SemCalendar} |cut -f 1 -d " " |tr '[:lower:]' '[:upper:]') == $(curl ${xospappsessentials}/${xospapps_essentials_SemCalendar}.md5 |cut -f 1 -d "%") ]]
+                then
+                    xospapps_essentials_done
+                else
+                    rm -f ${xospapps_essentials_SemCalendar}
+                    mkdir essentials/SemCalendar 2&>1 >/dev/null
+                    if wget -t 2 ${xospappsessentials}/${xospapps_essentials_SemCalendar} -O ${xospapps_essentials_SemCalendar} &>/dev/null
+                        then
+                            xospapps_essentials_done
+                        else
+                            xospapps_essentials_dwnlderror
+                    fi
+            fi
+            echo -e "Downloading SemcClock..."
+            xospapps_essentials_SemcClock="essentials/SemcClock/SemcClock.apk"
+            if [[ $(md5sum ${xospapps_essentials_SemcClock} |cut -f 1 -d " " |tr '[:lower:]' '[:upper:]') == $(curl ${xospappsessentials}/${xospapps_essentials_SemcClock}.md5 |cut -f 1 -d "%") ]]
+                then
+                    xospapps_essentials_done
+                else
+                    rm -f ${xospapps_essentials_SemcClock}
+                    mkdir essentials/SemcClock 2&>1 >/dev/null
+                    if wget -t 2 ${xospappsessentials}/${xospapps_essentials_SemcClock} -O ${xospapps_essentials_SemcClock} &>/dev/null
+                        then
+                            xospapps_essentials_done
+                        else
+                            xospapps_essentials_dwnlderror
+                    fi
+            fi
+            echo -e "Downloading SemcEmail..."
+            xospapps_essentials_SemcEmail="essentials/SemcEmail/SemcEmail.apk"
+            if [[ $(md5sum ${xospapps_essentials_SemcEmail} |cut -f 1 -d " " |tr '[:lower:]' '[:upper:]') == $(curl ${xospappsessentials}/${xospapps_essentials_SemcEmail}.md5 |cut -f 1 -d "%") ]]
+                then
+                    xospapps_essentials_done
+                else
+                    rm -f ${xospapps_essentials_SemcEmail}
+                    mkdir essentials/SemcEmail 2&>1 >/dev/null
+                    if wget -t 2 ${xospappsessentials}/${xospapps_essentials_SemcEmail} -O ${xospapps_essentials_SemcEmail} &>/dev/null
+                        then
+                            xospapps_essentials_done
+                        else
+                            xospapps_essentials_dwnlderror
+                    fi
+            fi
+            echo -e "Downloading textinput-tng for arm devices..."
+            xospapps_essentials_arm_textinputtng="essentials/textinput-tng/textinput-tng.apk"
+            xospapps_essentials_arm_textinputtng_libswiftkeysdkjava="essentials/textinput-tng/lib/arm/libswiftkeysdk-java.so"
+            if [[ $(md5sum ${xospapps_essentials_arm_textinputtng} |cut -f 1 -d " " |tr '[:lower:]' '[:upper:]') == $(curl ${xospappsessentials}/${xospapps_essentials_arm_textinputtng}.md5 |cut -f 1 -d "%") && $(md5sum ${xospapps_essentials_arm_textinputtng_libswiftkeysdkjava} |cut -f 1 -d " " |tr '[:lower:]' '[:upper:]') == $(curl ${xospappsessentials}/${xospapps_essentials_arm_textinputtng_libswiftkeysdkjava}.md5 |cut -f 1 -d "%") ]]
+                then
+                    xospapps_essentials_done
+                else
+                    rm -f ${xospapps_essentials_arm_textinputtng}
+                    rm -f ${xospapps_essentials_arm_textinputtng_libswiftkeysdkjava}
+                    mkdir -p essentials/textinput-tng/lib/arm 2&>1 >/dev/null
+                    if wget -t 2 ${xospappsessentials}/${xospapps_essentials_arm_textinputtng} -O ${xospapps_essentials_arm_textinputtng} &>/dev/null && wget -t 2 ${xospappsessentials}/${xospapps_essentials_arm_textinputtng_libswiftkeysdkjava} -O ${xospapps_essentials_arm_textinputtng_libswiftkeysdkjava} &>/dev/null
+                        then
+                            xospapps_essentials_done
+                        else
+                            xospapps_essentials_dwnlderror
+                    fi
+            fi
+            echo -e "Downloading textinput-tng for arm64 devices..."
+            xospapps_essentials_arm64_textinputtng="arm64/textinput-tng/textinput-tng.apk"
+            xospapps_essentials_arm64_textinputtng_libswiftkeysdkjava="arm64/textinput-tng/lib/arm/libswiftkeysdk-java.so"
+            if [[ $(md5sum ${xospapps_essentials_arm64_textinputtng} |cut -f 1 -d " " |tr '[:lower:]' '[:upper:]') == $(curl ${xospappsessentials}/${xospapps_essentials_arm64_textinputtng}.md5 |cut -f 1 -d "%") && $(md5sum ${xospapps_essentials_arm64_textinputtng_libswiftkeysdkjava} |cut -f 1 -d " " |tr '[:lower:]' '[:upper:]') == $(curl ${xospappsessentials}/${xospapps_essentials_arm64_textinputtng_libswiftkeysdkjava}.md5 |cut -f 1 -d "%") ]]
+                then
+                    xospapps_essentials_done
+                else
+                    rm -f ${xospapps_essentials_arm64_textinputtng}
+                    rm -f ${xospapps_essentials_arm64_textinputtng_libswiftkeysdkjava}
+                    mkdir -p arm64/textinput-tng/lib/arm 2&>1 >/dev/null
+                    if wget -t 2 ${xospappsessentials}/${xospapps_essentials_arm64_textinputtng} -O ${xospapps_essentials_arm64_textinputtng} &>/dev/null && wget -t 2 ${xospappsessentials}/${xospapps_essentials_arm64_textinputtng_libswiftkeysdkjava} -O ${xospapps_essentials_arm64_textinputtng_libswiftkeysdkjava} &>/dev/null
+                        then
+                            xospapps_essentials_done
+                        else
+                            xospapps_essentials_dwnlderror
+                    fi
+            fi
+            echo -e "Downloading Xperia Services..."
+            xospapps_essentials_XperiaServices="essentials/XperiaServices/XperiaServices.apk"
+            if [[ $(md5sum ${xospapps_essentials_XperiaServices} |cut -f 1 -d " " |tr '[:lower:]' '[:upper:]') == $(curl ${xospappsessentials}/${xospapps_essentials_XperiaServices}.md5 |cut -f 1 -d "%") ]]
+                then
+                    xospapps_essentials_done
+                else
+                    rm -f ${xospapps_essentials_XperiaServices}
+                    mkdir essentials/XperiaServices 2&>1 >/dev/null
+                    if wget -t 2 ${xospappsessentials}/${xospapps_essentials_XperiaServices} -O ${xospapps_essentials_XperiaServices} &>/dev/null
+                        then
+                            xospapps_essentials_done
+                        else
+                            xospapps_essentials_dwnlderror
+                    fi
+            fi
+            echo -e "Downloading Sony BatteryAdviser..."
+            xospapps_essentials_BatteryAdviser="essentials/BatteryAdviser/BatteryAdviser.apk"
+            xospapps_essentials_arm_BatteryAdviser_libpbp="essentials/BatteryAdviser/lib/arm/libpbp.so"
+            xospapps_essentials_arm64_BatteryAdviser_libpbp="essentials/BatteryAdviser/lib/arm64/libpbp.so"
+            if [[ $(md5sum ${xospapps_essentials_BatteryAdviser} |cut -f 1 -d " " |tr '[:lower:]' '[:upper:]') == $(curl ${xospappsessentials}/${xospapps_essentials_BatteryAdviser}.md5 |cut -f 1 -d "%") && $(md5sum ${xospapps_essentials_arm_BatteryAdviser_libpbp} |cut -f 1 -d " " |tr '[:lower:]' '[:upper:]') == $(curl ${xospappsessentials}/${xospapps_essentials_arm_BatteryAdviser_libpbp}.md5 |cut -f 1 -d "%") && $(md5sum ${xospapps_essentials_arm64_BatteryAdviser_libpbp} |cut -f 1 -d " " |tr '[:lower:]' '[:upper:]') == $(curl ${xospappsessentials}/${xospapps_essentials_arm64_BatteryAdviser_libpbp}.md5 |cut -f 1 -d "%") ]]
+                then
+                    xospapps_essentials_done
+                else
+                    rm -f ${xospapps_essentials_BatteryAdviser}
+                    rm -f ${xospapps_essentials_arm_BatteryAdviser_libpbp}
+                    rm -f ${xospapps_essentials_arm64_BatteryAdviser_libpbp}
+                    mkdir -p essentials/BatteryAdviser/lib 2&>1 >/dev/null
+                    mkdir essentials/BatteryAdviser/lib/arm 2&>1 >/dev/null
+                    mkdir essentials/BatteryAdviser/lib/arm64 2&>1 >/dev/null
+                    if wget -t 2 ${xospappsessentials}/${xospapps_essentials_BatteryAdviser} -O ${xospapps_essentials_BatteryAdviser} &>/dev/null && wget -t 2 ${xospappsessentials}/${xospapps_essentials_arm_BatteryAdviser_libpbp} -O ${xospapps_essentials_arm_BatteryAdviser_libpbp} &>/dev/null && wget -t 2 ${xospappsessentials}/${xospapps_essentials_arm64_BatteryAdviser_libpbp} -O ${xospapps_essentials_arm64_BatteryAdviser_libpbp} &>/dev/null
+                        then
+                            xospapps_essentials_done
+                        else
+                            xospapps_essentials_dwnlderror
+                    fi
+            fi
+            echo -e "Downloading Pardana Files..."
+            xospapps_essentials_PardanaFiles="essentials/PardanaFiles.zip"
+            xospapps_essentials_PardanaFiles_extracted="essentials/PardanaFiles"
+            if [[ $(md5sum ${xospapps_essentials_PardanaFiles} |cut -f 1 -d " " |tr '[:lower:]' '[:upper:]') == $(curl ${xospappsessentials}/${xospapps_essentials_PardanaFiles}.md5 |cut -f 1 -d "%") ]]
+                then
+                    rm -fr ${xospapps_essentials_PardanaFiles_extracted}
+                    mkdir ${xospapps_essentials_PardanaFiles_extracted} 2&>1 >/dev/null
+                    unzip -q ${xospapps_essentials_PardanaFiles} -d ${xospapps_essentials_PardanaFiles_extracted}
+                    xospapps_essentials_done
+                else
+                    rm -f ${xospapps_essentials_PardanaFiles}
+                    rm -fr ${xospapps_essentials_PardanaFiles_extracted}
+                    mkdir ${xospapps_essentials_PardanaFiles_extracted} 2&>1 >/dev/null
+                    if wget -t 2 ${xospappsessentials}/${xospapps_essentials_PardanaFiles} -O ${xospapps_essentials_PardanaFiles} &>/dev/null
+                        then
+                            unzip -q ${xospapps_essentials_PardanaFiles} -d ${xospapps_essentials_PardanaFiles_extracted}
+                            xospapps_essentials_done
+                        else
+                            xospapps_essentials_dwnlderror
+                    fi
+            fi
+            cd ..
+        else
+            echo -e "Environment isn't connected to internet, please check your connection."
+            exit 0
     fi
 }
 
