@@ -44,7 +44,6 @@ PRODUCT_COPY_FILES += \
 	essentials_xosp_apps/essentials/PardanaFiles/system/etc/permissions/com.sonymobile.media.dashboard.extension.xml:system/etc/permissions/com.sonymobile.media.dashboard.extension.xml \
 	essentials_xosp_apps/essentials/PardanaFiles/system/etc/permissions/com.sonymobile.mediacontent.xml:system/etc/permissions/com.sonymobile.mediacontent.xml \
 	essentials_xosp_apps/essentials/PardanaFiles/system/etc/permissions/com.sonymobile.musicslideshow.xml:system/etc/permissions/com.sonymobile.musicslideshow.xml \
-	essentials_xosp_apps/essentials/PardanaFiles/system/etc/permissions/com.sonymobile.photoanalyzer.xml:system/etc/permissions/com.sonymobile.photoanalyzer.xml \
 	essentials_xosp_apps/essentials/PardanaFiles/system/etc/permissions/com.sonymobile.photoeditor.xml:system/etc/permissions/com.sonymobile.photoeditor.xml \
 	essentials_xosp_apps/essentials/PardanaFiles/system/etc/permissions/com.sonymobile.podcast.xml:system/etc/permissions/com.sonymobile.podcast.xml \
 	essentials_xosp_apps/essentials/PardanaFiles/system/etc/permissions/com.sonymobile.provider.tasks.xml:system/etc/permissions/com.sonymobile.provider.tasks.xml
@@ -71,8 +70,6 @@ PRODUCT_COPY_FILES += \
 	essentials_xosp_apps/essentials/PardanaFiles/system/framework/com.sonymobile.media.dashboard.extension.jar:system/framework/com.sonymobile.media.dashboard.extension.jar \
 	essentials_xosp_apps/essentials/PardanaFiles/system/framework/com.sonymobile.mediacontent.jar:system/framework/com.sonymobile.mediacontent.jar \
 	essentials_xosp_apps/essentials/PardanaFiles/system/framework/com.sonymobile.musicslideshow.jar:system/framework/com.sonymobile.musicslideshow.jar \
-	essentials_xosp_apps/essentials/PardanaFiles/system/framework/com.sonymobile.photoanalyzer_impl.jar:system/framework/com.sonymobile.photoanalyzer_impl.jar \
-	essentials_xosp_apps/essentials/PardanaFiles/system/framework/com.sonymobile.photoanalyzer.jar:system/framework/com.sonymobile.photoanalyzer.jar \
 	essentials_xosp_apps/essentials/PardanaFiles/system/framework/com.sonymobile.photoeditor.jar:system/framework/com.sonymobile.photoeditor.jar \
 	essentials_xosp_apps/essentials/PardanaFiles/system/framework/com.sonymobile.podcast.jar:system/framework/com.sonymobile.podcast.jar \
 	essentials_xosp_apps/essentials/PardanaFiles/system/framework/com.sonymobile.provider.tasks.jar:system/framework/com.sonymobile.provider.tasks.jar
@@ -103,16 +100,7 @@ PRODUCT_COPY_FILES += \
 	essentials_xosp_apps/essentials/PardanaFiles/system/priv-app/Music/lib/arm/libgnsdk_musicid.3.09.0.so:system/priv-app/Music/lib/arm/libgnsdk_musicid.3.09.0.so \
 	essentials_xosp_apps/essentials/PardanaFiles/system/priv-app/Music/lib/arm/libgnsdk_musicid_file.3.09.0.so:system/priv-app/Music/lib/arm/libgnsdk_musicid_file.3.09.0.so \
 	essentials_xosp_apps/essentials/PardanaFiles/system/priv-app/Music/lib/arm/libgnsdk_storage_sqlite.3.09.0.so:system/priv-app/Music/lib/arm/libgnsdk_storage_sqlite.3.09.0.so \
-	essentials_xosp_apps/essentials/PardanaFiles/system/priv-app/PhotoAnalyzer/lib/arm/libPhotoAnalyzer.so:system/priv-app/PhotoAnalyzer/lib/arm/libPhotoAnalyzer.so \
-	essentials_xosp_apps/essentials/PardanaFiles/system/priv-app/PhotoAnalyzer/lib/arm/libPhotoAnalyzerjni.so:system/priv-app/PhotoAnalyzer/lib/arm/libPhotoAnalyzerjni.so \
 	essentials_xosp_apps/essentials/PardanaFiles/system/priv-app/PhotoEditor/lib/arm/libjni_eglfence.so:system/priv-app/PhotoEditor/lib/arm/libjni_eglfence.so \
 	essentials_xosp_apps/essentials/PardanaFiles/system/priv-app/PhotoEditor/lib/arm/libjni_filtershow_filters.so:system/priv-app/PhotoEditor/lib/arm/libjni_filtershow_filters.so \
-	essentials_xosp_apps/essentials/PardanaFiles/system/priv-app/PhotoEditor/lib/arm/librs.convolve3x3.so:system/priv-app/PhotoEditor/lib/arm/librs.convolve3x3.so \
-	essentials_xosp_apps/essentials/PardanaFiles/system/priv-app/PhotoEditor/lib/arm/librs.grad.so:system/priv-app/PhotoEditor/lib/arm/librs.grad.so \
-	essentials_xosp_apps/essentials/PardanaFiles/system/priv-app/PhotoEditor/lib/arm/librs.grey.so:system/priv-app/PhotoEditor/lib/arm/librs.grey.so \
-	essentials_xosp_apps/essentials/PardanaFiles/system/priv-app/PhotoEditor/lib/arm/librs.saturation.so:system/priv-app/PhotoEditor/lib/arm/librs.saturation.so \
-	essentials_xosp_apps/essentials/PardanaFiles/system/priv-app/PhotoEditor/lib/arm/librs.vignette.so:system/priv-app/PhotoEditor/lib/arm/librs.vignette.so \
-	essentials_xosp_apps/essentials/PardanaFiles/system/priv-app/PhotoEditor/lib/arm/librsjni.so:system/priv-app/PhotoEditor/lib/arm/librsjni.so \
-	essentials_xosp_apps/essentials/PardanaFiles/system/priv-app/PhotoEditor/lib/arm/libRSSupport.so:system/priv-app/PhotoEditor/lib/arm/libRSSupport.so \
 	essentials_xosp_apps/essentials/PardanaFiles/system/priv-app/SomcPodcast/lib/arm/libjpeguser.so:system/priv-app/SomcPodcast/lib/arm/libjpeguser.so \
 	essentials_xosp_apps/essentials/PardanaFiles/system/priv-app/SomcPodcast/lib/arm/libnativeio.so:system/priv-app/SomcPodcast/lib/arm/libnativeio.so
