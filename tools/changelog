@@ -17,6 +17,9 @@ touch $Changelog
 # Print something to build output
 echo ${bldppl}"Generating changelog..."${txtrst}
 
+if [ "$XOSP_BUILDTYPE" != "OFFICIAL" ]; then
+	echo "Skipping Weekly ChangeLOG for Unofficial devices"
+else
 for i in $(seq 10);
 do
 export After_Date=`date --date="$i days ago" +%m-%d-%Y`
@@ -35,6 +38,7 @@ k=$(expr $i - 1)
 done
 
 sed -i 's/project/   */g' $Changelog
+fi
 
 if [ -e $out/*/$Changelog ]
 then
