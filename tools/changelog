@@ -26,19 +26,19 @@ export After_Date=`date --date="$i days ago" +%m-%d-%Y`
 k=$(expr $i - 1)
 	export Until_Date=`date --date="$k days ago" +%m-%d-%Y`
 	
-	echo ''
-	echo ' Copyright (C) 2013-2017 Xperia Open Source Project'
-	echo '' 
-	echo ' Xperia Open Source Project is a project licensed under Apache License 2.0'
-	echo ''
-	echo 'Notice'
-	echo 'This is an auto generated changelog for the XOSPChangeLOGApp.'
-	echo 'The changelog is done only for official supported devices and it is updated each week.'
-	echo 'If you want to see the changelog of a specific weekly build,'
-	echo 'check this repository: https://github.com/XOSP-Project/utilities-xosp-changelogs'
-	echo 'Find your device and check the history of the commits'
-	echo ''
-	echo ''
+	echo '' >> $Changelog;
+	echo ' Copyright (C) 2013-2017 Xperia Open Source Project' >> $Changelog;
+	echo '' >> $Changelog;
+	echo ' Xperia Open Source Project is a project licensed under Apache License 2.0' >> $Changelog;
+	echo '' >> $Changelog;
+	echo ' Notice' >> $Changelog;
+	echo ' This is an auto generated changelog for the XOSPChangeLOGApp.'>> $Changelog;
+	echo ' The changelog is done only for official supported devices and it is updated each week.'>> $Changelog;
+	echo ' If you want to see the changelog of a specific weekly build,'>> $Changelog;
+	echo ' check this repository: https://github.com/XOSP-Project/utilities-xosp-changelogs' >> $Changelog;
+	echo ' Find your device and check the history of the commits' >> $Changelog;
+	echo '' >> $Changelog;
+	echo '' >> $Changelog;
 	
 	# Line with after --- until was too long for a small ListView
 	echo '====================' >> $Changelog;
