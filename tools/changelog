@@ -20,12 +20,7 @@ echo ${bldppl}"Generating changelog..."${txtrst}
 if [ "$GENERATE_CHANGELOG" = "0" ]; then
 	echo "Skipping Weekly ChangeLOG for Unofficial devices"
 else
-for i in $(seq 10);
-do
-export After_Date=`date --date="$i days ago" +%m-%d-%Y`
-k=$(expr $i - 1)
-	export Until_Date=`date --date="$k days ago" +%m-%d-%Y`
-	
+
 	echo '' >> $Changelog;
 	echo ' Copyright (C) 2013-2017 Xperia Open Source Project' >> $Changelog;
 	echo '' >> $Changelog;
@@ -39,6 +34,12 @@ k=$(expr $i - 1)
 	echo ' Find your device and check the history of the commits' >> $Changelog;
 	echo '' >> $Changelog;
 	echo '' >> $Changelog;
+
+for i in $(seq 10);
+do
+export After_Date=`date --date="$i days ago" +%m-%d-%Y`
+k=$(expr $i - 1)
+	export Until_Date=`date --date="$k days ago" +%m-%d-%Y`
 	
 	# Line with after --- until was too long for a small ListView
 	echo '====================' >> $Changelog;
