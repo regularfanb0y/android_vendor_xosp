@@ -17,7 +17,7 @@ touch $Changelog
 # Print something to build output
 echo ${bldppl}"Generating changelog..."${txtrst}
 
-if [ "$XOSP_BUILDTYPE" != "OFFICIAL" ]; then
+if [ "$GENERATE_CHANGELOG" = "0" ]; then
 	echo "Skipping Weekly ChangeLOG for Unofficial devices"
 else
 for i in $(seq 10);
@@ -25,7 +25,21 @@ do
 export After_Date=`date --date="$i days ago" +%m-%d-%Y`
 k=$(expr $i - 1)
 	export Until_Date=`date --date="$k days ago" +%m-%d-%Y`
-
+	
+	echo ''
+	echo ' Copyright (C) 2013-2017 Xperia Open Source Project'
+	echo '' 
+	echo ' Xperia Open Source Project is a project licensed under Apache License 2.0'
+	echo ''
+	echo 'Notice'
+	echo 'This is an auto generated changelog for the XOSPChangeLOGApp.'
+	echo 'The changelog is done only for official supported devices and it is updated each week.'
+	echo 'If you want to see the changelog of a specific weekly build,'
+	echo 'check this repository: https://github.com/XOSP-Project/utilities-xosp-changelogs'
+	echo 'Find your device and check the history of the commits'
+	echo ''
+	echo ''
+	
 	# Line with after --- until was too long for a small ListView
 	echo '====================' >> $Changelog;
 	echo  "     "$Until_Date       >> $Changelog;
@@ -40,18 +54,12 @@ done
 sed -i 's/project/   */g' $Changelog
 fi
 
-if [ -e $out/*/$Changelog ]
-then
-rm $out/*/$Changelog
-fi
 if [ -e $out/*/system/etc/$Changelog ]
 then
 rm $out/*/system/etc/$Changelog
 fi
-cp $Changelog $OUT/system/etc/
-cp $Changelog $OUT/
-rm $Changelog
 
-mv $OUT/Changelog.txt $OUT/Changelog.txt
+cp $Changelog $OUT/system/etc/
+rm $Changelog
 
 exit 0
