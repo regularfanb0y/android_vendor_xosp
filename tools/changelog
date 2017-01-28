@@ -6,25 +6,30 @@ out=$dir/out/target/product
 . $dir/vendor/xosp/tools/colors
 
 export Changelog=Weekly-Changelog.txt
+export Current_Version=Current-Version.txt
 
 if [ -f $Changelog ];
 then
 	rm -f $Changelog
 fi
 
-touch $Changelog
-
-# Print something to build output
-echo ${bldppl}"Generating changelog..."${txtrst}
+touch $Current_Version
 
 if [ "$GENERATE_CHANGELOG" = "0" ]; then
-	echo "Skipping Weekly ChangeLOG for Unofficial devices"
+	echo ${bldblu}"Skipping Weekly ChangeLOG for Unofficial devices"${txtrst}
 else
+	echo ${bldgrn}"Pointing current version"${txtrst}
+	echo "$STRING" >> $Current_Version;
+fi
+touch $Changelog
 
+if [ "$GENERATE_CHANGELOG" = "0" ]; then
+	echo ${bldblu}"Skipping Weekly ChangeLOG for Unofficial devices"${txtrst}
+else
+	echo ${bldblu}"Generating changelog..."${txtrst}
 	echo '' >> $Changelog;
 	echo ' Copyright (C) 2013-2017 Xperia Open Source Project' >> $Changelog;
 	echo '' >> $Changelog;
-	echo ' Xperia Open Source Project is a project licensed under Apache License 2.0' >> $Changelog;
 	echo '' >> $Changelog;
 	echo ' Notice' >> $Changelog;
 	echo ' This is an auto generated changelog for the XOSPChangeLOGApp.'>> $Changelog;
@@ -60,7 +65,14 @@ then
 rm $out/*/system/etc/$Changelog
 fi
 
+if [ -e $out/*/system/etc/$Current_Version ]
+then
+rm $out/*/system/etc/$Current_Version
+fi
+
 cp $Changelog $OUT/system/etc/
+cp $Current_Version $OUT/system/etc/
+rm $Current_Version
 rm $Changelog
 
 exit 0
