@@ -19,7 +19,6 @@ EOF
 function brunch()
 {
     breakfast $1
-    del_xospapps_essentials
     xospapps_essentials
     make xosp $2
     return $?
@@ -217,10 +216,6 @@ function dddclient()
   else
        echo "Unable to determine build system output dir."
    fi
-}
-
-function del_xospapps_essentials(){
-  rm -rf temp_essentials_xosp_apps
 }
 
 function xospapps_essentials() {
