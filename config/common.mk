@@ -26,7 +26,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Default notification/alarm sounds
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.config.notification_sound=Tejat.ogg \
-    ro.config.alarm_alert=xosp.ogg
+    ro.config.alarm_alert=xperia.ogg
 
 ifneq ($(TARGET_BUILD_VARIANT),user)
 # Thank you, please drive thru!
