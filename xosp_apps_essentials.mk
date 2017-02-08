@@ -14,6 +14,7 @@ endif
 
 PRODUCT_COPY_FILES += \
 	essentials_xosp_apps/essentials/Home/Home.apk:system/app/Home/Home.apk \
+	essentials_xosp_apps/essentials/SemCalendar/SemCalendar.apk:system/priv-app/SemCalendar/SemCalendar.apk \
 	essentials_xosp_apps/essentials/SemcClock/SemcClock.apk:system/priv-app/SemcClock/SemcClock.apk \
 	essentials_xosp_apps/essentials/XperiaServices/XperiaServices.apk:system/app/XperiaServices/XperiaServices.apk \
 	essentials_xosp_apps/essentials/SemcEmail/SemcEmail.apk:system/priv-app/SemcEmail/SemcEmail.apk \
