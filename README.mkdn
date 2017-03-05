@@ -1,0 +1,72 @@
+ ![](http://s21.postimg.org/w9nhupo1j/user4968383_pic43635_1391879040.png)
+ 
+
+# Issues
+
+###Notice
+- I can't confirm when these issues will be resolved so don't push up the maintainers or me by asking these kind of stuff. I'll try my best to fix them as soon as possible. But some issues will not be like others so please have patience.
+
+	- XOSP Equalizer: Users can't set up Custom Profile
+	- XOSP Settings /Blur Settings: When exiting from the Color Picker (After applying a color on one of the Color Filters preferences) the user is not able to see the preferences anymore.
+		- WORKAROUND : By sliding from left to the right the preferences will start appearing again
+
+
+####You can open a new issue right here on Git, so if you have any just click on Issues and create a new one
+
+-----------------
+
+
+# Features
+
+##(Main and most relevant ones)
+
+###Note
+- This list will change in the future with every release so I don't want to hear (Talking for the RL7 REV1) that the list of features is too short or something. Everything at it's time
+
+ - Based on CyanogenMod 14.1 (7.1.1)
+ - Custom NavBar Style
+ - Xperia UI Oriented
+ - New UI custom UI colors System Wide
+ - New Settings Style
+ - XOSP ChangeLOG App
+ - XOSPDelta (Official Devices ONLY) (Not included yet)
+ - XOSP Equalizer
+ - XOSP N Bootanimation
+ - Xperia XZ Wallpapers
+ - Xperia XZ Fonts
+ - Sony Battery Adviser
+ - Custom Browser themed
+ - Custom Messaging app themed
+ - Animated NavBar Animation (Home Pixel style animation)
+ - Network Traffic Indicator
+ - Color Picker
+ - Double Tap to Sleep NavBar
+ - Double Tap to Sleep Lockscreen
+ - Xperia Battery Prototype Icon
+ - Xperia Lockscreen Clock style
+ - Custom Shutdown/Restart Dialog
+ - XOSPBlur Personalizations options:
+  - Blurred Expanded StatusBar
+  - Blurred QS Notification Header Expanded
+  - Radius and Scale change ability
+  - Recents Apps Blur
+  - Blur Color Filters (Ability to change Blur colors)
+ - XOSP NavBar Switch (Allows the user to switch to the old MM NavBar style)
+ - Other mninor additions
+ 
+ #XperiaApps included in XOSPApps (Full)
+ 
+ - Xperia Home
+ - SemcCalendar
+ - SemcClock
+ - SemcEmail
+ - XperiaServices
+ - Xperia Keyboard aka textinput-tng
+ - Sony Album
+ - Sony Music
+ - PhotoAnalyzer
+ - PhotoEditor
+ - SomcPodcast
+ - AudioRecorder
+ - Clock/Weather Widgets
+ - Weather App
