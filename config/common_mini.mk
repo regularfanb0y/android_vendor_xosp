@@ -1,10 +1,10 @@
-# Inherit common CM stuff
-$(call inherit-product, vendor/cm/config/common.mk)
+# Inherit common XOSP stuff
+$(call inherit-product, vendor/xosp/config/common.mk)
 
 PRODUCT_SIZE := mini
 
-# Include CM audio files
-include vendor/cm/config/cm_audio.mk
+# Include XOSP audio files
+include vendor/xosp/config/xosp_audio.mk
 
 # Default notification/alarm sounds
 PRODUCT_PROPERTY_OVERRIDES += \
