@@ -104,10 +104,9 @@ PRODUCT_PACKAGES += \
 # Custom packages
 PRODUCT_PACKAGES += \
     LockClock \
-    XOSPSetupWizard \
     ExactCalculator \
     Screencast \
-    Equalizer
+    Equalizer 
 
 # Exchange support
 PRODUCT_PACKAGES += \
