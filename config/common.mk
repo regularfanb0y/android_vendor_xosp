@@ -201,12 +201,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 DEVICE_PACKAGE_OVERLAYS += vendor/xosp/overlay/common
 
-PRODUCT_RELEASE= RL7
-PRODUCT_REVISION = 2
-PRODUCT_REVISION_PROP = Revision2
-BUILD_MAJOR = 7
-BUILD_MINOR = 2
-
 
 ifndef XOSP_BUILDTYPE
     ifdef RELEASE_TYPE
@@ -217,7 +211,7 @@ ifndef XOSP_BUILDTYPE
 endif
 
 ifeq ($(XOSP_BUILDTYPE), OFFICIAL)
-    XOSP_VERSION := XOSP-RL$(BUILD_MAJOR)-REV$(BUILD_MINOR)-$(XOSP_BUILDTYPE)-$(shell date -u +%Y%m%d)-$(XOSP_BUILD)
+    XOSP_VERSION := XOSP-$(XOSP_BUILDTYPE)-$(shell date -u +%Y%m%d)-$(XOSP_BUILD)
     #Copy the prebuilt XOSPDelta if the device is official!
       #PRODUCT_COPY_FILES += \
         vendor/xosp/prebuilt/common/XOSPDelta.zip:install/xospdelta/XOSPDelta.zip 			
@@ -227,14 +221,12 @@ else ifeq ($(XOSP_BUILDTYPE), EXPERIMENTAL)
 else
     # If XOSP_BUILDTYPE is not defined, set to UNOFFICIAL
     XOSP_BUILDTYPE := UNOFFICIAL
-    XOSP_VERSION := XOSP-RL$(BUILD_MAJOR)-REV$(BUILD_MINOR)-$(XOSP_BUILDTYPE)-$(shell date -u +%Y%m%d)-$(XOSP_BUILD)
+    XOSP_VERSION := XOSP-$(XOSP_BUILDTYPE)-$(shell date -u +%Y%m%d)-$(XOSP_BUILD)
 endif
 
 
 PRODUCT_PROPERTY_OVERRIDES += \
   ro.xosp.releasetype=$(XOSP_BUILDTYPE) \
-  ro.xosp.release=$(PRODUCT_RELEASE) \
-  ro.xosp.revision=$(PRODUCT_REVISION_PROP) \
   ro.modversion=$(XOSP_VERSION) \
   ro.xosp.base.version=XOSP-N
 
