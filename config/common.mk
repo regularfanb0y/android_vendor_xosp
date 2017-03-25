@@ -89,11 +89,24 @@ include vendor/xosp/config/xosp_audio.mk
 PRODUCT_PACKAGES += \
     bootanimation.zip
 
+ifeq ($(WITH_SUPERSU), true)
+ifeq ($(WITH_MAGISK),true)
+$(error Make up your mind about the root method)
+endif
+endif
+
+# SuperSU	
 ifdef ($(WITH_SUPERSU),true)
-# SuperSU
 PRODUCT_COPY_FILES += \
    vendor/xosp/prebuilt/common/etc/UPDATE-SuperSU.zip:system/addon.d/UPDATE-SuperSU.zip \
    vendor/xosp/prebuilt/common/etc/init.d/99SuperSUDaemon:system/etc/init.d/99SuperSUDaemon
+endif
+
+# Magisk
+ifdef ($(WITH_MAGISK),true)
+PRODUCT_COPY_FILES += \
+   vendor/xosp/prebuilt/common/etc/Magisk.zip:system/addon.d/Magisk.zip \
+   vendor/xosp/prebuilt/common/priv-app/MagiskManager.apk:system/priv-app/MagiskManager/MagiskManager.apk
 endif
 
 # Required packages
