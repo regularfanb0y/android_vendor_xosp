@@ -89,10 +89,12 @@ include vendor/xosp/config/xosp_audio.mk
 PRODUCT_PACKAGES += \
     bootanimation.zip
 
+ifdef ($(WITH_SUPERSU),true)
 # SuperSU
 PRODUCT_COPY_FILES += \
    vendor/xosp/prebuilt/common/etc/UPDATE-SuperSU.zip:system/addon.d/UPDATE-SuperSU.zip \
    vendor/xosp/prebuilt/common/etc/init.d/99SuperSUDaemon:system/etc/init.d/99SuperSUDaemon
+endif
 
 # Required packages
 PRODUCT_PACKAGES += \
