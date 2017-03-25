@@ -201,6 +201,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 DEVICE_PACKAGE_OVERLAYS += vendor/xosp/overlay/common
 
+#Don't even try to change this
+XOSPAPPS_SIGNATURE := 18da103e0bf65271e54a3ca4675be3bf
+
 
 ifndef XOSP_BUILDTYPE
     ifdef RELEASE_TYPE
@@ -228,7 +231,8 @@ endif
 PRODUCT_PROPERTY_OVERRIDES += \
   ro.xosp.releasetype=$(XOSP_BUILDTYPE) \
   ro.modversion=$(XOSP_VERSION) \
-  ro.xosp.base.version=XOSP-N
+  ro.xosp.base.version=XOSP-N \
+  ro.xospapps.signature=$(XOSPAPPS_SIGNATURE)
 
 XOSP_DISPLAY_VERSION := $(XOSP_VERSION)
 
