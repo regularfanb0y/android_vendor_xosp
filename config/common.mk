@@ -92,7 +92,7 @@ PRODUCT_PACKAGES += \
 # SuperSU	
 ifeq ($(ROOT_METHOD),supersu)
 PRODUCT_COPY_FILES += \
-   vendor/xosp/prebuilt/common/etc/UPDATE-SuperSU.zip:system/addon.d/UPDATE-SuperSU.zip \
+   vendor/xosp/prebuilt/common/etc/UPDATE-SuperSU.zip:install/supersu/supersu.zip \
    vendor/xosp/prebuilt/common/etc/init.d/99SuperSUDaemon:system/etc/init.d/99SuperSUDaemon
 WITH_SUPERSU := true
 endif
@@ -100,7 +100,7 @@ endif
 # Magisk
 ifeq ($(ROOT_METHOD),magisk)
 PRODUCT_COPY_FILES += \
-   vendor/xosp/prebuilt/common/etc/Magisk.zip:system/addon.d/Magisk.zip \
+   vendor/xosp/prebuilt/common/etc/Magisk.zip:install/magisk/magisk.zip \
    vendor/xosp/prebuilt/common/priv-app/MagiskManager.apk:system/priv-app/MagiskManager/MagiskManager.apk
 WITH_MAGISK := true
 endif
