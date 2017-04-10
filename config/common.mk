@@ -220,6 +220,7 @@ DEVICE_PACKAGE_OVERLAYS += vendor/xosp/overlay/common
 #Don't even try to change this
 XOSPAPPS_SIGNATURE := 18da103e0bf65271e54a3ca4675be3bf
 
+PRODUCT_PACKAGES += XCA
 
 ifndef XOSP_BUILDTYPE
     ifdef RELEASE_TYPE
