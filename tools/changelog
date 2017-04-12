@@ -15,24 +15,30 @@ fi
 
 touch $Current_Version
 
-echo ${bldgrn}"Pointing current version"${txtrst}
-echo "$STRING" >> $Current_Version;
-
+if [ "$GENERATE_CHANGELOG" = "0" ]; then
+	echo ${bldblu}"Skipping Weekly ChangeLOG for Unofficial devices"${txtrst}
+else
+	echo ${bldgrn}"Pointing current version"${txtrst}
+	echo "$STRING" >> $Current_Version;
+fi
 touch $Changelog
 
-echo ${bldblu}"Generating changelog..."${txtrst}
-echo '' >> $Changelog;
-echo ' Copyright (C) 2013-2017 Xperia Open Source Project' >> $Changelog;
-echo '' >> $Changelog;
-echo '' >> $Changelog;
-echo ' Notice' >> $Changelog;
-echo ' This is an auto generated changelog for the XOSPChangeLOGApp.'>> $Changelog;
-echo ' The changelog is done only for official supported devices and it is updated each week.'>> $Changelog;
-echo ' If you want to see the changelog of a specific weekly build,'>> $Changelog;
-echo ' check this repository: https://github.com/XOSP-Project/utilities-xosp-changelogs' >> $Changelog;
-echo ' Find your device and check the history of the commits' >> $Changelog;
-echo '' >> $Changelog;
-echo '' >> $Changelog;
+if [ "$GENERATE_CHANGELOG" = "0" ]; then
+	echo ${bldblu}"Skipping Weekly ChangeLOG for Unofficial devices"${txtrst}
+else
+	echo ${bldblu}"Generating changelog..."${txtrst}
+	echo '' >> $Changelog;
+	echo ' Copyright (C) 2013-2017 Xperia Open Source Project' >> $Changelog;
+	echo '' >> $Changelog;
+	echo '' >> $Changelog;
+	echo ' Notice' >> $Changelog;
+	echo ' This is an auto generated changelog for the XOSPChangeLOGApp.'>> $Changelog;
+	echo ' The changelog is done only for official supported devices and it is updated each week.'>> $Changelog;
+	echo ' If you want to see the changelog of a specific weekly build,'>> $Changelog;
+	echo ' check this repository: https://github.com/XOSP-Project/utilities-xosp-changelogs' >> $Changelog;
+	echo ' Find your device and check the history of the commits' >> $Changelog;
+	echo '' >> $Changelog;
+	echo '' >> $Changelog;
 
 for i in $(seq 10);
 do
@@ -52,6 +58,7 @@ k=$(expr $i - 1)
 done
 
 sed -i 's/project/   */g' $Changelog
+fi
 
 if [ -e $out/*/system/etc/$Changelog ]
 then
@@ -62,5 +69,10 @@ if [ -e $out/*/system/etc/$Current_Version ]
 then
 rm $out/*/system/etc/$Current_Version
 fi
+
+cp $Changelog $OUT/system/etc/
+cp $Current_Version $OUT/system/etc/
+rm $Current_Version
+rm $Changelog
 
 exit 0
