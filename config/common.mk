@@ -215,7 +215,7 @@ endif
 DEVICE_PACKAGE_OVERLAYS += vendor/xosp/overlay/common
 
 #Don't even try to change this
-XOSPAPPS_SIGNATURE := 18da103e0bf65271e54a3ca4675be3bf
+XOSPAPPS_SIGNATURE := 003d18f3d55f53199531dde37b3c33c6
 
 PRODUCT_PACKAGES += XCA
 

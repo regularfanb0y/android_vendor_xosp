@@ -363,6 +363,21 @@ function xospapps_essentials() {
                             xospapps_essentials_dwnlderror
                     fi
             fi
+            echo -e "Downloading ClockWidgets ..."
+            xospapps_essentials_ClockWidgets="essentials/ClockWidgets/ClockWidgets.apk"
+            if [[ $(md5sum ${xospapps_essentials_ClockWidgets} |cut -f 1 -d " " |tr '[:lower:]' '[:upper:]') == $(curl ${xospappsessentials}/${xospapps_essentials_ClockWidgets}.md5 |cut -f 1 -d "%") ]]
+                then
+                    xospapps_essentials_done
+                else
+                    rm -f ${xospapps_essentials_ClockWidgets}
+                    mkdir essentials/ClockWidgets 2&>1 >/dev/null
+                    if wget -t 2 ${xospappsessentials}/${xospapps_essentials_ClockWidgets} -O ${xospapps_essentials_ClockWidgets} &>/dev/null
+                        then
+                            xospapps_essentials_done
+                        else
+                            xospapps_essentials_dwnlderror
+                    fi
+            fi
             echo -e "Downloading Pardana Files..."
             xospapps_essentials_PardanaFiles="essentials/PardanaFiles.zip"
             xospapps_essentials_PardanaFiles_extracted="essentials/PardanaFiles"

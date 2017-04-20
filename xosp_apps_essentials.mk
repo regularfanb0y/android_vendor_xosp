@@ -20,7 +20,8 @@ PRODUCT_COPY_FILES += \
 	essentials_xosp_apps/essentials/SemcEmail/SemcEmail.apk:system/priv-app/SemcEmail/SemcEmail.apk \
 	essentials_xosp_apps/essentials/BatteryAdviser/BatteryAdviser.apk:system/app/BatteryAdviser/BatteryAdviser.apk \
 	essentials_xosp_apps/essentials/BatteryAdviser/lib/arm/libpbp.so:system/app/BatteryAdviser/lib/arm/libpbp.so \
-	essentials_xosp_apps/essentials/BatteryAdviser/lib/arm64/libpbp.so:system/app/BatteryAdviser/lib/arm64/libpbp.so
+	essentials_xosp_apps/essentials/BatteryAdviser/lib/arm64/libpbp.so:system/app/BatteryAdviser/lib/arm64/libpbp.so \
+	essentials_xosp_apps/essentials/ClockWidgets/ClockWidgets.apk:system/app/ClockWidgets/ClockWidgets.apk
 
 
 # Copy Pardana Files Components
@@ -38,7 +39,6 @@ PRODUCT_COPY_FILES += \
 	essentials_xosp_apps/essentials/PardanaFiles/system/etc/permissions/com.sonymobile.help.xml:system/etc/permissions/com.sonymobile.help.xml \
 	essentials_xosp_apps/essentials/PardanaFiles/system/etc/permissions/com.sonymobile.provider.tasks.xml:system/etc/permissions/com.sonymobile.provider.tasks.xml \
 	essentials_xosp_apps/essentials/PardanaFiles/system/etc/permissions/com.sonymobile.smime.xml:system/etc/permissions/com.sonymobile.smime.xml \
-	essentials_xosp_apps/essentials/PardanaFiles/system/etc/permissions/SemcGenericUxpRes.xml:system/etc/permissions/SemcGenericUxpRes.xml \
 	essentials_xosp_apps/essentials/PardanaFiles/system/etc/permissions/com.sonyericsson.metadatacleanup.xml:system/etc/permissions/com.sonyericsson.metadatacleanup.xml \
 	essentials_xosp_apps/essentials/PardanaFiles/system/etc/permissions/com.sonymobile.album.xml:system/etc/permissions/com.sonymobile.album.xml \
 	essentials_xosp_apps/essentials/PardanaFiles/system/etc/permissions/com.sonymobile.home.resourceprovider.xml:system/etc/permissions/com.sonymobile.home.resourceprovider.xml \
@@ -47,11 +47,11 @@ PRODUCT_COPY_FILES += \
 	essentials_xosp_apps/essentials/PardanaFiles/system/etc/permissions/com.sonymobile.musicslideshow.xml:system/etc/permissions/com.sonymobile.musicslideshow.xml \
 	essentials_xosp_apps/essentials/PardanaFiles/system/etc/permissions/com.sonymobile.photoeditor.xml:system/etc/permissions/com.sonymobile.photoeditor.xml \
 	essentials_xosp_apps/essentials/PardanaFiles/system/etc/permissions/com.sonymobile.podcast.xml:system/etc/permissions/com.sonymobile.podcast.xml \
-	essentials_xosp_apps/essentials/PardanaFiles/system/etc/permissions/com.sonymobile.provider.tasks.xml:system/etc/permissions/com.sonymobile.provider.tasks.xml
+	essentials_xosp_apps/essentials/PardanaFiles/system/etc/permissions/com.sonymobile.provider.tasks.xml:system/etc/permissions/com.sonymobile.provider.tasks.xml \
+	essentials_xosp_apps/essentials/PardanaFiles/system/etc/permissions/com.sonymobile.enterprise.xml:system/etc/permissions/com.sonymobile.enterprise.xml
 	
 #Frameworks
 PRODUCT_COPY_FILES += \
-	essentials_xosp_apps/essentials/PardanaFiles/system/framework/SemcGenericUxpRes/SemcGenericUxpRes.apk:system/framework/SemcGenericUxpRes/SemcGenericUxpRes.apk \
 	essentials_xosp_apps/essentials/PardanaFiles/system/framework/com.google.protobuf-2.3.0.jar:system/framework/com.google.protobuf-2.3.0.jar \
 	essentials_xosp_apps/essentials/PardanaFiles/system/framework/com.sony.device.jar:system/framework/com.sony.device.jar \
 	essentials_xosp_apps/essentials/PardanaFiles/system/framework/com.sonyericsson.android.socialphonebook.dynamic.jar:system/framework/com.sonyericsson.android.socialphonebook.dynamic.jar \
@@ -73,7 +73,8 @@ PRODUCT_COPY_FILES += \
 	essentials_xosp_apps/essentials/PardanaFiles/system/framework/com.sonymobile.musicslideshow.jar:system/framework/com.sonymobile.musicslideshow.jar \
 	essentials_xosp_apps/essentials/PardanaFiles/system/framework/com.sonymobile.photoeditor.jar:system/framework/com.sonymobile.photoeditor.jar \
 	essentials_xosp_apps/essentials/PardanaFiles/system/framework/com.sonymobile.podcast.jar:system/framework/com.sonymobile.podcast.jar \
-	essentials_xosp_apps/essentials/PardanaFiles/system/framework/com.sonymobile.provider.tasks.jar:system/framework/com.sonymobile.provider.tasks.jar
+	essentials_xosp_apps/essentials/PardanaFiles/system/framework/com.sonymobile.provider.tasks.jar:system/framework/com.sonymobile.provider.tasks.jar \
+	essentials_xosp_apps/essentials/PardanaFiles/system/framework/com.sonymobile.enterprise_impl.jar:system/framework/com.sonymobile.enterprise_impl.jar
 	
 
 #Lib Apps
