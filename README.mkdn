@@ -7,8 +7,6 @@
 - I can't confirm when these issues will be resolved so don't push up the maintainers or me by asking these kind of stuff. I'll try my best to fix them as soon as possible. But some issues will not be like others so please have patience.
 
 	- XOSP Equalizer: Users can't set up Custom Profile
-	- XOSP Settings /Blur Settings: When exiting from the Color Picker (After applying a color on one of the Color Filters preferences) the user is not able to see the preferences anymore.
-		- WORKAROUND : By sliding from left to the right the preferences will start appearing again
 
 
 #### You can open a new issue right here on Git, so if you have any just click on Issues and create a new one
