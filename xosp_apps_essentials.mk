@@ -1,6 +1,6 @@
 #Copy the essentials XOSPApps
 
-ifeq ($(IS_ARM64), TRUE)
+ifeq ($(TARGET_ARCH), arm64)
 
 PRODUCT_COPY_FILES += \
 	essentials_xosp_apps/arm64/textinput-tng/textinput-tng.apk:system/priv-app/textinput-tng/textinput-tng.apk \
