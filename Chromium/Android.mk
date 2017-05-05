@@ -20,25 +20,15 @@ include $(CLEAR_VARS)
 LOCAL_MODULE := Chromium
 LOCAL_MODULE_TAGS := debug optional
 LOCAL_MODULE_CLASS := APPS
+ifeq ($(TARGET_ARCH), x86)
+LOCAL_SRC_FILES := Chromium_x86.apk
 LOCAL_MODULE_SUFFIX := $(COMMON_ANDROID_PACKAGE_SUFFIX)
 LOCAL_BUILT_MODULE_STEM := package.apk
 LOCAL_CERTIFICATE := PRESIGNED
-
-ifeq ($(TARGET_ARCH), x86)
-  LOCAL_SRC_FILES := Chromium_x86.apk
-  include $(BUILD_PREBUILT)
-   
-  #Required libs 
-  PRODUCT_COPY_FILES += \
-      x86/libs/libchrome.so \
-      x86/libs/libchromium_android_linker.so
-else 
-  LOCAL_SRC_FILES := Chromium_arm.apk
-  include $(BUILD_PREBUILT)
-  
-  #Required libs
-  PRODUCT_COPY_FILES += \
-      arm/libs/libchrome.so \
-      arm/libs/libchromium_android_linker.so
+else
+LOCAL_SRC_FILES := Chromium_arm.apk
+LOCAL_MODULE_SUFFIX := $(COMMON_ANDROID_PACKAGE_SUFFIX)
+LOCAL_BUILT_MODULE_STEM := package.apk
+LOCAL_CERTIFICATE := PRESIGNED
 endif
-
+include $(BUILD_PREBUILT)

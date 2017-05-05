@@ -38,6 +38,18 @@ ifneq ($(TARGET_BUILD_VARIANT),eng)
 ADDITIONAL_DEFAULT_PROPERTIES += ro.adb.secure=1
 endif
 
+#Chromium libs
+ifeq ($(CHROMIUM_X86), true)
+  #Required libs
+  PRODUCT_COPY_FILES += \
+      vendor/xosp/Chromium/x86/libs/libchrome.so:system/app/Chromium/lib/x86/libchrome.so \
+      vendor/xosp/Chromium/x86/libs/libchromium_android_linker.so:system/app/Chromium/lib/x86/libchromium_android_linker.so
+else
+  #Required libs
+  PRODUCT_COPY_FILES += \
+      vendor/xosp/Chromium/arm/libs/libchrome.so:system/app/Chromium/lib/arm/libchrome.so \
+      vendor/xosp/Chromium/arm/libs/libchromium_android_linker.so:system/app/Chromium/lib/arm/libchromium_android_linker.so
+endif
     
 # Backup Tool
 PRODUCT_COPY_FILES += \
