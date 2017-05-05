@@ -125,7 +125,8 @@ PRODUCT_PACKAGES += \
     LockClock \
     ExactCalculator \
     Screencast \
-    Equalizer 
+    Equalizer \
+    Chromium
 
 # Exchange support
 PRODUCT_PACKAGES += \
