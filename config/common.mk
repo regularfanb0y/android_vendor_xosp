@@ -39,16 +39,18 @@ ADDITIONAL_DEFAULT_PROPERTIES += ro.adb.secure=1
 endif
 
 #Chromium libs
-ifeq ($(CHROMIUM_X86), true)
-  #Required libs
-  PRODUCT_COPY_FILES += \
-      vendor/xosp/Chromium/x86/libs/libchrome.so:system/app/Chromium/lib/x86/libchrome.so \
-      vendor/xosp/Chromium/x86/libs/libchromium_android_linker.so:system/app/Chromium/lib/x86/libchromium_android_linker.so
-else
-  #Required libs
-  PRODUCT_COPY_FILES += \
-      vendor/xosp/Chromium/arm/libs/libchrome.so:system/app/Chromium/lib/arm/libchrome.so \
-      vendor/xosp/Chromium/arm/libs/libchromium_android_linker.so:system/app/Chromium/lib/arm/libchromium_android_linker.so
+ifeq ($(USE_CHROMIUM), true)
+  ifeq ($(CHROMIUM_X86), true)
+    PRODUCT_PACKAGES += \
+        Chromium
+    PRODUCT_COPY_FILES += \
+        vendor/xosp/Chromium/x86/libs/libchrome.so:system/app/Chromium/lib/x86/libchrome.so \
+        vendor/xosp/Chromium/x86/libs/libchromium_android_linker.so:system/app/Chromium/lib/x86/libchromium_android_linker.so
+  else
+    PRODUCT_COPY_FILES += \
+        vendor/xosp/Chromium/arm/libs/libchrome.so:system/app/Chromium/lib/arm/libchrome.so \
+        vendor/xosp/Chromium/arm/libs/libchromium_android_linker.so:system/app/Chromium/lib/arm/libchromium_android_linker.so
+  endif
 endif
     
 # Backup Tool
@@ -137,8 +139,7 @@ PRODUCT_PACKAGES += \
     LockClock \
     ExactCalculator \
     Screencast \
-    Equalizer \
-    Chromium
+    Equalizer 
 
 # Exchange support
 PRODUCT_PACKAGES += \
