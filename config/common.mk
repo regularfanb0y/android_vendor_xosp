@@ -41,8 +41,6 @@ endif
 #Chromium libs
 ifeq ($(USE_CHROMIUM), true)
   ifeq ($(CHROMIUM_X86), true)
-    PRODUCT_PACKAGES += \
-        Chromium
     PRODUCT_COPY_FILES += \
         vendor/xosp/Chromium/x86/libs/libchrome.so:system/app/Chromium/lib/x86/libchrome.so \
         vendor/xosp/Chromium/x86/libs/libchromium_android_linker.so:system/app/Chromium/lib/x86/libchromium_android_linker.so
@@ -51,6 +49,8 @@ ifeq ($(USE_CHROMIUM), true)
         vendor/xosp/Chromium/arm/libs/libchrome.so:system/app/Chromium/lib/arm/libchrome.so \
         vendor/xosp/Chromium/arm/libs/libchromium_android_linker.so:system/app/Chromium/lib/arm/libchromium_android_linker.so
   endif
+  PRODUCT_PACKAGES += \
+      Chromium
 endif
     
 # Backup Tool
