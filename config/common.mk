@@ -25,6 +25,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Default notification/alarm sounds
 PRODUCT_PROPERTY_OVERRIDES += \
+    ro.config.ringtone=xperia.ogg \
     ro.config.notification_sound=Tejat.ogg \
     ro.config.alarm_alert=xperia.ogg
 
