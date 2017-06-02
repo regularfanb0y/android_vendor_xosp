@@ -293,34 +293,20 @@ function xospapps_essentials() {
                             xospapps_essentials_dwnlderror
                     fi
             fi
-            echo -e "Downloading textinput-tng for arm devices..."
+            echo -e "Downloading textinput-tng..."
             xospapps_essentials_arm_textinputtng="essentials/textinput-tng/textinput-tng.apk"
             xospapps_essentials_arm_textinputtng_libswiftkeysdkjava="essentials/textinput-tng/lib/arm/libswiftkeysdk-java.so"
-            if [[ $(md5sum ${xospapps_essentials_arm_textinputtng} |cut -f 1 -d " " |tr '[:lower:]' '[:upper:]') == $(curl ${xospappsessentials}/${xospapps_essentials_arm_textinputtng}.md5 |cut -f 1 -d "%") && $(md5sum ${xospapps_essentials_arm_textinputtng_libswiftkeysdkjava} |cut -f 1 -d " " |tr '[:lower:]' '[:upper:]') == $(curl ${xospappsessentials}/${xospapps_essentials_arm_textinputtng_libswiftkeysdkjava}.md5 |cut -f 1 -d "%") ]]
+            xospapps_essentials_arm64_textinputtng_libswiftkeysdkjava="essentials/textinput-tng/lib/arm64/libswiftkeysdk-java.so"
+            if [[ $(md5sum ${xospapps_essentials_arm_textinputtng} |cut -f 1 -d " " |tr '[:lower:]' '[:upper:]') == $(curl ${xospappsessentials}/${xospapps_essentials_arm_textinputtng}.md5 |cut -f 1 -d "%") && $(md5sum ${xospapps_essentials_arm_textinputtng_libswiftkeysdkjava} |cut -f 1 -d " " |tr '[:lower:]' '[:upper:]') == $(curl ${xospappsessentials}/${xospapps_essentials_arm_textinputtng_libswiftkeysdkjava}.md5 |cut -f 1 -d "%") && $(md5sum ${xospapps_essentials_arm64_textinputtng_libswiftkeysdkjava} |cut -f 1 -d " " |tr '[:lower:]' '[:upper:]') == $(curl ${xospappsessentials}/${xospapps_essentials_arm64_textinputtng_libswiftkeysdkjava}.md5 |cut -f 1 -d "%") ]]
                 then
                     xospapps_essentials_done
                 else
                     rm -f ${xospapps_essentials_arm_textinputtng}
                     rm -f ${xospapps_essentials_arm_textinputtng_libswiftkeysdkjava}
-                    mkdir -p essentials/textinput-tng/lib/arm 2&>1 >/dev/null
-                    if wget -t 2 ${xospappsessentials}/${xospapps_essentials_arm_textinputtng} -O ${xospapps_essentials_arm_textinputtng} &>/dev/null && wget -t 2 ${xospappsessentials}/${xospapps_essentials_arm_textinputtng_libswiftkeysdkjava} -O ${xospapps_essentials_arm_textinputtng_libswiftkeysdkjava} &>/dev/null
-                        then
-                            xospapps_essentials_done
-                        else
-                            xospapps_essentials_dwnlderror
-                    fi
-            fi
-            echo -e "Downloading textinput-tng for arm64 devices..."
-            xospapps_essentials_arm64_textinputtng="arm64/textinput-tng/textinput-tng.apk"
-            xospapps_essentials_arm64_textinputtng_libswiftkeysdkjava="arm64/textinput-tng/lib/arm/libswiftkeysdk-java.so"
-            if [[ $(md5sum ${xospapps_essentials_arm64_textinputtng} |cut -f 1 -d " " |tr '[:lower:]' '[:upper:]') == $(curl ${xospappsessentials}/${xospapps_essentials_arm64_textinputtng}.md5 |cut -f 1 -d "%") && $(md5sum ${xospapps_essentials_arm64_textinputtng_libswiftkeysdkjava} |cut -f 1 -d " " |tr '[:lower:]' '[:upper:]') == $(curl ${xospappsessentials}/${xospapps_essentials_arm64_textinputtng_libswiftkeysdkjava}.md5 |cut -f 1 -d "%") ]]
-                then
-                    xospapps_essentials_done
-                else
-                    rm -f ${xospapps_essentials_arm64_textinputtng}
                     rm -f ${xospapps_essentials_arm64_textinputtng_libswiftkeysdkjava}
-                    mkdir -p arm64/textinput-tng/lib/arm 2&>1 >/dev/null
-                    if wget -t 2 ${xospappsessentials}/${xospapps_essentials_arm64_textinputtng} -O ${xospapps_essentials_arm64_textinputtng} &>/dev/null && wget -t 2 ${xospappsessentials}/${xospapps_essentials_arm64_textinputtng_libswiftkeysdkjava} -O ${xospapps_essentials_arm64_textinputtng_libswiftkeysdkjava} &>/dev/null
+                    mkdir -p essentials/textinput-tng/lib/arm 2&>1 >/dev/null
+                    mkdir -p essentials/textinput-tng/lib/arm64
+                    if wget -t 2 ${xospappsessentials}/${xospapps_essentials_arm_textinputtng} -O ${xospapps_essentials_arm_textinputtng} &>/dev/null && wget -t 2 ${xospappsessentials}/${xospapps_essentials_arm_textinputtng_libswiftkeysdkjava} -O ${xospapps_essentials_arm_textinputtng_libswiftkeysdkjava} && wget -t 2 ${xospappsessentials}/${xospapps_essentials_arm64_textinputtng_libswiftkeysdkjava} -O ${xospapps_essentials_arm64_textinputtng_libswiftkeysdkjava} &>/dev/null
                         then
                             xospapps_essentials_done
                         else

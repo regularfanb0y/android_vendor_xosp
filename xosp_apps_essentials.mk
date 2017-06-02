@@ -1,17 +1,5 @@
 #Copy the essentials XOSPApps
 
-ifeq ($(IS_ARM64), TRUE)
-
-PRODUCT_COPY_FILES += \
-	essentials_xosp_apps/arm64/textinput-tng/textinput-tng.apk:system/priv-app/textinput-tng/textinput-tng.apk \
-	essentials_xosp_apps/arm64/textinput-tng/lib/arm/libswiftkeysdk-java.so:system/priv-app/textinput-tng/lib/arm/libswiftkeysdk-java.so
-else
-
-PRODUCT_COPY_FILES += \
-	essentials_xosp_apps/essentials/textinput-tng/textinput-tng.apk:system/priv-app/textinput-tng/textinput-tng.apk \
-	essentials_xosp_apps/essentials/textinput-tng/lib/arm/libswiftkeysdk-java.so:system/priv-app/textinput-tng/lib/arm/libswiftkeysdk-java.so
-endif
-
 PRODUCT_COPY_FILES += \
 	essentials_xosp_apps/essentials/Home/Home.apk:system/app/Home/Home.apk \
 	essentials_xosp_apps/essentials/SemCalendar/SemCalendar.apk:system/priv-app/SemCalendar/SemCalendar.apk \
@@ -21,8 +9,10 @@ PRODUCT_COPY_FILES += \
 	essentials_xosp_apps/essentials/BatteryAdviser/BatteryAdviser.apk:system/app/BatteryAdviser/BatteryAdviser.apk \
 	essentials_xosp_apps/essentials/BatteryAdviser/lib/arm/libpbp.so:system/app/BatteryAdviser/lib/arm/libpbp.so \
 	essentials_xosp_apps/essentials/BatteryAdviser/lib/arm64/libpbp.so:system/app/BatteryAdviser/lib/arm64/libpbp.so \
-	essentials_xosp_apps/essentials/ClockWidgets/ClockWidgets.apk:system/app/ClockWidgets/ClockWidgets.apk
-
+	essentials_xosp_apps/essentials/ClockWidgets/ClockWidgets.apk:system/app/ClockWidgets/ClockWidgets.apk \
+	essentials_xosp_apps/arm64/textinput-tng/textinput-tng.apk:system/priv-app/textinput-tng/textinput-tng.apk \
+	essentials_xosp_apps/arm64/textinput-tng/lib/arm/libswiftkeysdk-java.so:system/priv-app/textinput-tng/lib/arm/libswiftkeysdk-java.so \
+	essentials_xosp_apps/essentials/textinput-tng/lib/arm64/libswiftkeysdk-java.so:system/priv-app/textinput-tng/lib/arm64/libswiftkeysdk-java.so
 
 # Copy Pardana Files Components
 
