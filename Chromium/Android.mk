@@ -18,7 +18,7 @@ LOCAL_PATH := $(my-dir)
 include $(CLEAR_VARS)
 
 LOCAL_MODULE := Chromium
-LOCAL_MODULE_TAGS := debug optional
+LOCAL_MODULE_TAGS := eng optional
 LOCAL_MODULE_CLASS := APPS
 ifeq ($(TARGET_ARCH), x86)
 LOCAL_SRC_FILES := Chromium_x86.apk
