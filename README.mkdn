@@ -3,29 +3,36 @@
 
 # Issues
 
-### Notice
-- I can't confirm when these issues will be resolved so don't push up the maintainers or me by asking these kind of stuff. I'll try my best to fix them as soon as possible. But some issues will not be like others so please have patience.
+For Issues, feature requests or other kind of questions, use the bugtracker repo: https://github.com/XOSP-Project/utilities-xosp-bugtracker
 
-	- XOSP Equalizer: Users can't set up Custom Profile
+# Contributing to XOSP
 
+We love contributions from the community so if you want to submit patches you can do it by pushing on our gerrit: review.xosp.org:8081
 
-#### You can open a new issue right here on Git, so if you have any just click on Issues and create a new one
+- First make sure that your Name and Email are named globally on Git: 
 
------------------
- 
- # Xperia Additions included in XOSPApps (Full)
- 
- - Xperia Home
- - SemcCalendar
- - SemcClock
- - SemcEmail
- - XperiaServices
- - Xperia Keyboard aka textinput-tng
- - Sony Album
- - Sony Music
- - PhotoAnalyzer
- - PhotoEditor
- - SomcPodcast
- - AudioRecorder
- - Clock/Weather Widgets
- - Weather App
+      $ git config --global user.name "YourName"
+      $ git config --global user.email "YourEmail"
+
+- Create a SSH Key and add it to your Gerrit Profile, otherwise you will not be able to push your changes, to do so just follow the steps foundable here: https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/
+- Now, select the repo/s you're interested to contribute to from here: http://review.xosp.org:8081/#/admin/projects/
+- Clone it with the SSH method like here for example:
+
+      $ git clone ssh://your_username@review.xosp.org:29418/your_repo
+
+- Make your changes and commit as usual,when pusing do like this:
+
+      $ git push origin HEAD:refs/for/xosp-n-rebase
+
+- Perfect! you now uploaded your very first patch on Gerrit. Please allow time for it to be verified, depending by the change it could take from very less to very much time
+
+- If you want to assign a topic to your commit just push the commit as follow:
+
+      $ git clone ssh://your_username@review.xosp.org:29418/your_repo -o topic=your_topic
+
+- If you made mistakes or new changes were made to the current commit just use amend:
+
+      $ git add -A
+      $ git commit -s --amend --no-edit
+
+If you're on Linux you can use directly the command git-review to push instead of git push which is much more automated
