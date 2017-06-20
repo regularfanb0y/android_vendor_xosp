@@ -231,7 +231,7 @@ function xospapps_essentials() {
         then
             echo -e "Environment connected to internet!"
             echo -e "Downloading the essentials XOSPApps for the compilation..."
-            mkdir -p essentials_xosp_apps/essentials 2&>1 >/dev/null
+            mkdir -p essentials_xosp_apps/essentials;
             cd essentials_xosp_apps
             echo -e "Downloading Xperia Home..."
             xospapps_essentials_Home="essentials/Home/Home.apk"
@@ -240,7 +240,7 @@ function xospapps_essentials() {
                     xospapps_essentials_done
                 else
                     rm -f ${xospapps_essentials_Home}
-                    mkdir essentials/Home 2&>1 >/dev/null
+                    mkdir essentials/Home
                     if wget -t 2 ${xospappsessentials}/${xospapps_essentials_Home} -O ${xospapps_essentials_Home} &>/dev/null
                         then
                             xospapps_essentials_done
@@ -255,7 +255,7 @@ function xospapps_essentials() {
                     xospapps_essentials_done
                 else
                     rm -f ${xospapps_essentials_SemCalendar}
-                    mkdir essentials/SemCalendar 2&>1 >/dev/null
+                    mkdir essentials/SemCalendar
                     if wget -t 2 ${xospappsessentials}/${xospapps_essentials_SemCalendar} -O ${xospapps_essentials_SemCalendar} &>/dev/null
                         then
                             xospapps_essentials_done
@@ -270,7 +270,7 @@ function xospapps_essentials() {
                     xospapps_essentials_done
                 else
                     rm -f ${xospapps_essentials_SemcClock}
-                    mkdir essentials/SemcClock 2&>1 >/dev/null
+                    mkdir essentials/SemcClock
                     if wget -t 2 ${xospappsessentials}/${xospapps_essentials_SemcClock} -O ${xospapps_essentials_SemcClock} &>/dev/null
                         then
                             xospapps_essentials_done
@@ -285,7 +285,7 @@ function xospapps_essentials() {
                     xospapps_essentials_done
                 else
                     rm -f ${xospapps_essentials_SemcEmail}
-                    mkdir essentials/SemcEmail 2&>1 >/dev/null
+                    mkdir essentials/SemcEmail
                     if wget -t 2 ${xospappsessentials}/${xospapps_essentials_SemcEmail} -O ${xospapps_essentials_SemcEmail} &>/dev/null
                         then
                             xospapps_essentials_done
@@ -304,7 +304,7 @@ function xospapps_essentials() {
                     rm -f ${xospapps_essentials_arm_textinputtng}
                     rm -f ${xospapps_essentials_arm_textinputtng_libswiftkeysdkjava}
                     rm -f ${xospapps_essentials_arm64_textinputtng_libswiftkeysdkjava}
-                    mkdir -p essentials/textinput-tng/lib/arm 2&>1 >/dev/null
+                    mkdir -p essentials/textinput-tng/lib/arm
                     mkdir -p essentials/textinput-tng/lib/arm64
                     if wget -t 2 ${xospappsessentials}/${xospapps_essentials_arm_textinputtng} -O ${xospapps_essentials_arm_textinputtng} &>/dev/null && wget -t 2 ${xospappsessentials}/${xospapps_essentials_arm_textinputtng_libswiftkeysdkjava} -O ${xospapps_essentials_arm_textinputtng_libswiftkeysdkjava} && wget -t 2 ${xospappsessentials}/${xospapps_essentials_arm64_textinputtng_libswiftkeysdkjava} -O ${xospapps_essentials_arm64_textinputtng_libswiftkeysdkjava} &>/dev/null
                         then
@@ -320,7 +320,7 @@ function xospapps_essentials() {
                     xospapps_essentials_done
                 else
                     rm -f ${xospapps_essentials_XperiaServices}
-                    mkdir essentials/XperiaServices 2&>1 >/dev/null
+                    mkdir essentials/XperiaServices
                     if wget -t 2 ${xospappsessentials}/${xospapps_essentials_XperiaServices} -O ${xospapps_essentials_XperiaServices} &>/dev/null
                         then
                             xospapps_essentials_done
@@ -339,9 +339,9 @@ function xospapps_essentials() {
                     rm -f ${xospapps_essentials_BatteryAdviser}
                     rm -f ${xospapps_essentials_arm_BatteryAdviser_libpbp}
                     rm -f ${xospapps_essentials_arm64_BatteryAdviser_libpbp}
-                    mkdir -p essentials/BatteryAdviser/lib 2&>1 >/dev/null
-                    mkdir essentials/BatteryAdviser/lib/arm 2&>1 >/dev/null
-                    mkdir essentials/BatteryAdviser/lib/arm64 2&>1 >/dev/null
+                    mkdir -p essentials/BatteryAdviser/lib
+                    mkdir essentials/BatteryAdviser/lib/arm
+                    mkdir essentials/BatteryAdviser/lib/arm64
                     if wget -t 2 ${xospappsessentials}/${xospapps_essentials_BatteryAdviser} -O ${xospapps_essentials_BatteryAdviser} &>/dev/null && wget -t 2 ${xospappsessentials}/${xospapps_essentials_arm_BatteryAdviser_libpbp} -O ${xospapps_essentials_arm_BatteryAdviser_libpbp} &>/dev/null && wget -t 2 ${xospappsessentials}/${xospapps_essentials_arm64_BatteryAdviser_libpbp} -O ${xospapps_essentials_arm64_BatteryAdviser_libpbp} &>/dev/null
                         then
                             xospapps_essentials_done
@@ -356,7 +356,7 @@ function xospapps_essentials() {
                     xospapps_essentials_done
                 else
                     rm -f ${xospapps_essentials_ClockWidgets}
-                    mkdir essentials/ClockWidgets 2&>1 >/dev/null
+                    mkdir essentials/ClockWidgets
                     if wget -t 2 ${xospappsessentials}/${xospapps_essentials_ClockWidgets} -O ${xospapps_essentials_ClockWidgets} &>/dev/null
                         then
                             xospapps_essentials_done
@@ -370,13 +370,13 @@ function xospapps_essentials() {
             if [[ $(md5sum ${xospapps_essentials_PardanaFiles} |cut -f 1 -d " " |tr '[:lower:]' '[:upper:]') == $(curl ${xospappsessentials}/${xospapps_essentials_PardanaFiles}.md5 |cut -f 1 -d "%") ]]
                 then
                     rm -fr ${xospapps_essentials_PardanaFiles_extracted}
-                    mkdir ${xospapps_essentials_PardanaFiles_extracted} 2&>1 >/dev/null
+                    mkdir ${xospapps_essentials_PardanaFiles_extracted}
                     unzip -q ${xospapps_essentials_PardanaFiles} -d ${xospapps_essentials_PardanaFiles_extracted}
                     xospapps_essentials_done
                 else
                     rm -f ${xospapps_essentials_PardanaFiles}
                     rm -fr ${xospapps_essentials_PardanaFiles_extracted}
-                    mkdir ${xospapps_essentials_PardanaFiles_extracted} 2&>1 >/dev/null
+                    mkdir ${xospapps_essentials_PardanaFiles_extracted}
                     if wget -t 2 ${xospappsessentials}/${xospapps_essentials_PardanaFiles} -O ${xospapps_essentials_PardanaFiles} &>/dev/null
                         then
                             unzip -q ${xospapps_essentials_PardanaFiles} -d ${xospapps_essentials_PardanaFiles_extracted}
