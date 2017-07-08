@@ -40,7 +40,7 @@ else
 	echo '' >> $Changelog;
 	echo '' >> $Changelog;
 
-for i in $(seq 12);
+for i in $(seq 7);
 do
 export After_Date=`date --date="$i days ago" +%m-%d-%Y`
 k=$(expr $i - 1)
