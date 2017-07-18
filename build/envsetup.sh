@@ -20,7 +20,12 @@ function brunch()
 {
     breakfast $1
     xospapps_essentials
-    make xosp $2
+    if [ $2 ]; then
+    	make xosp $2
+    else
+    	local NUM_CPUS=$(cat /proc/cpuinfo | grep "^processor" | wc -l)
+    	make xosp $NUM_CPUS
+    fi
     return $?
 }
 
