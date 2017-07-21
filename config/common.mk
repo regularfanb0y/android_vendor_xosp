@@ -233,17 +233,6 @@ DEVICE_PACKAGE_OVERLAYS += vendor/xosp/overlay/common
 #Don't even try to change this
 XOSPAPPS_SIGNATURE := b93947e9018d72e42b0579d98683df8e
 
-#XOSPApps Essentials
-PRODUCT_PACKAGES += \
-    XperiaServices \
-    textinput-tng \
-    SemcEmail \
-    SemcClock \
-    SemCalendar \
-    XperiaHome \
-    ClockWidgets \
-    BatteryAdviser
-
 PRODUCT_PACKAGES += XCA
 
 ifndef XOSP_BUILDTYPE

@@ -1,3 +1,19 @@
+#Copy the essentials XOSPApps
+
+PRODUCT_COPY_FILES += \
+	essentials_xosp_apps/essentials/Home/Home.apk:system/app/Home/Home.apk \
+	essentials_xosp_apps/essentials/SemCalendar/SemCalendar.apk:system/priv-app/SemCalendar/SemCalendar.apk \
+	essentials_xosp_apps/essentials/SemcClock/SemcClock.apk:system/priv-app/SemcClock/SemcClock.apk \
+	essentials_xosp_apps/essentials/XperiaServices/XperiaServices.apk:system/app/XperiaServices/XperiaServices.apk \
+	essentials_xosp_apps/essentials/SemcEmail/SemcEmail.apk:system/priv-app/SemcEmail/SemcEmail.apk \
+	essentials_xosp_apps/essentials/BatteryAdviser/BatteryAdviser.apk:system/app/BatteryAdviser/BatteryAdviser.apk \
+	essentials_xosp_apps/essentials/BatteryAdviser/lib/arm/libpbp.so:system/app/BatteryAdviser/lib/arm/libpbp.so \
+	essentials_xosp_apps/essentials/BatteryAdviser/lib/arm64/libpbp.so:system/app/BatteryAdviser/lib/arm64/libpbp.so \
+	essentials_xosp_apps/essentials/ClockWidgets/ClockWidgets.apk:system/app/ClockWidgets/ClockWidgets.apk \
+	essentials_xosp_apps/essentials/textinput-tng/textinput-tng.apk:system/priv-app/textinput-tng/textinput-tng.apk \
+	essentials_xosp_apps/essentials/textinput-tng/lib/arm/libswiftkeysdk-java.so:system/priv-app/textinput-tng/lib/arm/libswiftkeysdk-java.so \
+	essentials_xosp_apps/essentials/textinput-tng/lib/arm64/libswiftkeysdk-java.so:system/priv-app/textinput-tng/lib/arm64/libswiftkeysdk-java.so
+
 # Copy Pardana Files Components
 
 # Permissions
