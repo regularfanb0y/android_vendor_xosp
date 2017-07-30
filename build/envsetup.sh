@@ -24,7 +24,7 @@ function brunch()
     	make xosp $2
     else
     	local NUM_CPUS=$(cat /proc/cpuinfo | grep "^processor" | wc -l)
-    	make xosp $NUM_CPUS
+    	make xosp -j$NUM_CPUS
     fi
     return $?
 }
