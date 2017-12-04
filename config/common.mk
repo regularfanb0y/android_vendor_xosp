@@ -247,8 +247,11 @@ ifeq ($(XOSP_BUILDTYPE), OFFICIAL)
     XOSP_VERSION := XOSP-$(XOSP_BUILDTYPE)-$(shell date -u +%Y%m%d)-$(XOSP_BUILD)
 
 else ifeq ($(XOSP_BUILDTYPE), EXPERIMENTAL) 	
-    XOSP_VERSION := XOSP-$(XOSP_BUILDTYPE)-$(shell date -u +%Y%m%d)-$(XOSP_BUILD) 
+    XOSP_VERSION := XOSP-$(XOSP_BUILDTYPE)-$(shell date -u +%Y%m%d)-$(XOSP_BUILD)
 
+else ifeq ($(XOSP_BUILDTYPE), INTERNAL) 	
+    XOSP_VERSION := XOSP-$(XOSP_BUILDTYPE)-$(shell date -u +%Y%m%d)-$(XOSP_BUILD)
+    
 else
     # If XOSP_BUILDTYPE is not defined, set to UNOFFICIAL
     XOSP_BUILDTYPE := UNOFFICIAL
